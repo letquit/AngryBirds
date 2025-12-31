@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     public static PlayerInput PlayerInput;
+    
     private InputAction _mousePositionAction;
     private InputAction _mouseAction;
 

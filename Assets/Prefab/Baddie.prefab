@@ -173,3 +173,4 @@ MonoBehaviour:
   _maxHealth: 3
   _damageThreshold: 0.2
   _baddieDeathParticle: {fileID: 3879914788981852107, guid: 8bc73067922e2ac4b87d2f3fd8a15533, type: 3}
+  _deathClip: {fileID: 8300000, guid: 07efeec0a2e9ceb4d8dc6578cdb89d8a, type: 3}
