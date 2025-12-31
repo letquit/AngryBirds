@@ -1437,7 +1437,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mobile - Angry Birds - Pre-Chrome Characters_36
+      name: Smoke4
       rect:
         serializedVersion: 2
         x: 169
@@ -1921,7 +1921,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mobile - Angry Birds - Pre-Chrome Characters_62
+      name: Smoke3
       rect:
         serializedVersion: 2
         x: 168
@@ -2449,7 +2449,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mobile - Angry Birds - Pre-Chrome Characters_86
+      name: Smoke2
       rect:
         serializedVersion: 2
         x: 168
@@ -2779,7 +2779,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mobile - Angry Birds - Pre-Chrome Characters_101
+      name: Smoke1
       rect:
         serializedVersion: 2
         x: 168
@@ -4755,7 +4755,6 @@ TextureImporter:
       Mobile - Angry Birds - Pre-Chrome Characters_1: -3779195787082710163
       Mobile - Angry Birds - Pre-Chrome Characters_10: 4520688762809997427
       Mobile - Angry Birds - Pre-Chrome Characters_100: 2261453750059260079
-      Mobile - Angry Birds - Pre-Chrome Characters_101: 4365445491044107532
       Mobile - Angry Birds - Pre-Chrome Characters_102: -7504913370926939334
       Mobile - Angry Birds - Pre-Chrome Characters_103: -7586715232117041506
       Mobile - Angry Birds - Pre-Chrome Characters_104: -1720037801102970257
@@ -4869,7 +4868,6 @@ TextureImporter:
       Mobile - Angry Birds - Pre-Chrome Characters_33: 5083768081764507285
       Mobile - Angry Birds - Pre-Chrome Characters_34: 7735455580013844609
       Mobile - Angry Birds - Pre-Chrome Characters_35: -8180525395677653640
-      Mobile - Angry Birds - Pre-Chrome Characters_36: 375403677325769585
       Mobile - Angry Birds - Pre-Chrome Characters_37: -1074067024815802621
       Mobile - Angry Birds - Pre-Chrome Characters_38: 1249104995219767210
       Mobile - Angry Birds - Pre-Chrome Characters_39: 4907478583373396476
@@ -4898,7 +4896,6 @@ TextureImporter:
       Mobile - Angry Birds - Pre-Chrome Characters_6: 9033722943457544715
       Mobile - Angry Birds - Pre-Chrome Characters_60: 8539128565075133316
       Mobile - Angry Birds - Pre-Chrome Characters_61: 6859631830048915731
-      Mobile - Angry Birds - Pre-Chrome Characters_62: 1459139025971703213
       Mobile - Angry Birds - Pre-Chrome Characters_63: -8383428039135318713
       Mobile - Angry Birds - Pre-Chrome Characters_64: -3782729807445457127
       Mobile - Angry Birds - Pre-Chrome Characters_65: -964934963615487160
@@ -4924,7 +4921,6 @@ TextureImporter:
       Mobile - Angry Birds - Pre-Chrome Characters_83: 8697167059763620525
       Mobile - Angry Birds - Pre-Chrome Characters_84: -164688510393055952
       Mobile - Angry Birds - Pre-Chrome Characters_85: 192705517515754846
-      Mobile - Angry Birds - Pre-Chrome Characters_86: 5956269681022083013
       Mobile - Angry Birds - Pre-Chrome Characters_87: 276815268408504546
       Mobile - Angry Birds - Pre-Chrome Characters_88: 602612964013152573
       Mobile - Angry Birds - Pre-Chrome Characters_89: 3407473474590316348
@@ -4940,6 +4936,10 @@ TextureImporter:
       Mobile - Angry Birds - Pre-Chrome Characters_98: 2325000052295557544
       Mobile - Angry Birds - Pre-Chrome Characters_99: -4766843190743715177
       Pig: -3683563431218776198
+      Smoke1: 4365445491044107532
+      Smoke2: 5956269681022083013
+      Smoke3: 1459139025971703213
+      Smoke4: 375403677325769585
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

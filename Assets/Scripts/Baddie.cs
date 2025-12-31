@@ -5,6 +5,7 @@ public class Baddie : MonoBehaviour
 {
     [SerializeField] private float _maxHealth = 3f;
     [SerializeField] private float _damageThreshold = 0.2f;
+    [SerializeField] private GameObject _baddieDeathParticle;
 
     private float _currentHealth;
 
@@ -26,6 +27,8 @@ public class Baddie : MonoBehaviour
     private void Die()
     {
         GameManager.instance.RemoveBaddie(this);
+
+        Instantiate(_baddieDeathParticle, transform.position, Quaternion.identity);
         
         Destroy(gameObject);
     }
