@@ -23,9 +23,11 @@ public class SlingShotHandler : MonoBehaviour
     [SerializeField] private float _timeBetweenBirdRespawns = 2f;
     [SerializeField] private float _elasticDivider = 1.2f;
     [SerializeField] private AnimationCurve _elasticCurve;
+    [SerializeField] private float _maxAnimationTime = 1f;
     
     [Header("Scripts")]
     [SerializeField] private SlingShotArea _slingShotArea;
+    [SerializeField] private CameraManager _cameraManager;
 
     [Header("Bird")]
     [SerializeField] private AngryBird _angryBirdPrefab;
@@ -65,6 +67,7 @@ public class SlingShotHandler : MonoBehaviour
             if (_birdOnSlingshot)
             {
                 SoundManager.instance.PlayClip(_elasticPulledClip, _audioSource);
+                _cameraManager.SwitchToFollowCam(_spawnAngryBird.transform);
             }
         }
         
@@ -98,14 +101,38 @@ public class SlingShotHandler : MonoBehaviour
     
     private void DrawSlingShot()
     {
-        Vector3 touchPosition = Camera.main.ScreenToWorldPoint(InputManager.MousePosition);
+        Vector3 mousePos = InputManager.MousePosition;
+
+        if (mousePos.x < 0 || mousePos.x > Screen.width || mousePos.y < 0 || mousePos.y > Screen.height)
+        {
+            return;
+        }
+        
+        Vector3 touchPosition = Camera.main.ScreenToWorldPoint(mousePos);
+
+        // 添加额外检查以确保坐标值有效
+        if (float.IsNaN(touchPosition.x) || float.IsNaN(touchPosition.y) || float.IsInfinity(touchPosition.x) || float.IsInfinity(touchPosition.y))
+        {
+            Debug.LogWarning("Screen to world point conversion failed, skipping slingshot draw.");
+            return;
+        }
 
         _slingShotLinesPosition = _centerPosition.position + Vector3.ClampMagnitude(touchPosition - _centerPosition.position, _maxDistance);
         
         SetLines(_slingShotLinesPosition);
         
         _direction = (Vector2)_centerPosition.position - _slingShotLinesPosition;
-        _directionNormalized = _direction.normalized;
+        
+        // 检查方向向量是否有效
+        if (_direction.sqrMagnitude > 0.0001f) // 使用sqrMagnitude避免开方运算
+        {
+            _directionNormalized = _direction.normalized;
+        }
+        else
+        {
+            // 如果方向向量太小，保持之前的方向或设置默认方向
+            _directionNormalized = Vector2.left; // 或者使用其他默认方向
+        }
     }
 
     private void SetLines(Vector2 position)
@@ -129,6 +156,7 @@ public class SlingShotHandler : MonoBehaviour
 
     private void SpawnAngryBird()
     {
+        _elasticTransform.DOComplete();
         SetLines(_idlePosition.position);
 
         Vector2 dir = (_centerPosition.position - _idlePosition.position).normalized;
@@ -151,6 +179,8 @@ public class SlingShotHandler : MonoBehaviour
         yield return new WaitForSeconds(_timeBetweenBirdRespawns);
         
         SpawnAngryBird();
+        
+        _cameraManager.SwitchToIdleCam();
     }
 
     #endregion
@@ -171,10 +201,10 @@ public class SlingShotHandler : MonoBehaviour
 
     private IEnumerator AnimateSlingShotLines(Transform trans, float time)
     {
-        float elapsedTIme = 0f;
-        while (elapsedTIme < time)
+        float elapsedTime = 0f;
+        while (elapsedTime < time && elapsedTime < _maxAnimationTime)
         {
-            elapsedTIme += Time.deltaTime;
+            elapsedTime += Time.deltaTime;
             
             SetLines(trans.position);
             
